@@ -89,6 +89,7 @@ sudo systemctl daemon-reload
 sudo systemctl restart kubelet
 
 # ---------- Common configuration for both worker and master node is DONE
+# ---------- Below one is For Master Node ( control-plane )
 echo "\n At this stage your node is ready to work as worker node by adding join-token of cluster node"
 read -p "To make it Control-plane ( master-node ) Enter 0 ,For Exit Enter 1  : " user_input
 if [ "$user_input" -eq 0 ];then
@@ -118,6 +119,7 @@ if [ "$user_input" -eq 0 ];then
 else
 	echo "\nTo make this NODE as control plane, Refer - kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/\n"
 	echo "\n----- complete -----\n"
+	sudo systemctl daemon-reload
 fi
 
 

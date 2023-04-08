@@ -23,6 +23,7 @@ CNI - Weave Net
 
 * Feedback Please:
   if you applied this shell script, Please share your feedback on - https://www.linkedin.com/posts/digpal-parmar_cka-kubernetes-devops-activity-7050560850138476544-HgOh
+  OR https://twitter.com/DigpalParmar2/status/1644804475205419010
 
 * References:
 1. https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/

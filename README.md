@@ -6,14 +6,14 @@ Kubernetes version - 1.26
 CRI - containerd + Docker
 CNI - Weave Net
 
-Pre-Requisite :
+* Pre-Requisite :
 
 1.  ubuntu 22.10 / 22.04 / 20.04 / 18.04
 2.  2vCPU and 4 GB Ram
 3.  Required Port for k8s components should be open in firewall/security_groups
 
 
-Info on Running script :
+* Info on Running script :
 
 1. There can be couple of prompt
 2. There will be Main one propt of Making it master-node or not [ At this stage, this node ready as worker node by Enter:1 and then manually adding kubeadm join token command BUT to make it master-node Enter: 0]
@@ -21,10 +21,10 @@ Info on Running script :
    1. systemctl deamon-reload && systemctl restart kubelet && kubectl get nodes
    2. kubectl describe node your_control_plane_node_name
 
-Feedback Please:
-if you applied this shell script, Please share your feedback on  - 
+* Feedback Please:
+  if you applied this shell script, Please share your feedback on  - 
 
-References:
+* References:
 1. https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
 2. https://kubernetes.io/docs/setup/production-environment/container-runtimes/
 3. https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/

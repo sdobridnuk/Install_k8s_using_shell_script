@@ -22,7 +22,7 @@ CNI - Weave Net
    2. kubectl describe node your_control_plane_node_name
 
 * Feedback Please:
-  if you applied this shell script, Please share your feedback on  - 
+  if you applied this shell script, Please share your feedback on - https://www.linkedin.com/posts/digpal-parmar_cka-kubernetes-devops-activity-7050560850138476544-HgOh
 
 * References:
 1. https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/

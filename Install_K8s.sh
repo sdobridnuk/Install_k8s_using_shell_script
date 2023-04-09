@@ -94,7 +94,7 @@ echo "\n At this stage your node is ready to work as worker node by adding join-
 read -p "To make it Control-plane ( master-node ) Enter 0 ,For Exit Enter 1  : " user_input
 if [ "$user_input" -eq 0 ];then
         user_ip = hostname -I | awk '{print $1}'
-	echo "Going to run kubeadm command"
+	echo "Initializing Kubeadm , may take some time"
 	if sudo kubeadm init --apiserver-advertise-address=$user_ip --ignore-preflight-errors=all | grep -q 'kubeadm join';then
 		echo ""
 		
@@ -120,6 +120,7 @@ else
 	echo "\nTo make this NODE as control plane, Refer - kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/\n"
 	echo "\n----- complete -----\n"
 	sudo systemctl daemon-reload
+	echo "please restart daemon-reload once again [  systemctl daemon-reload ]"
 fi
 
 

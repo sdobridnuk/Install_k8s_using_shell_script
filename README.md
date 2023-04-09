@@ -15,9 +15,9 @@ CNI - Weave Net
 
 * Info on Running script :
 
-1. There can be couple of prompt
-2. There will be Main one propt of Making it master-node or not [ At this stage, this node ready as worker node by Enter:1 and then manually adding kubeadm join token command BUT to make it master-node Enter: 0]
-3. if master-node in notReady then try to catch error
+1. There can be couple of prompts
+2. There will be main prompt of Making it master-node or not [ At this stage, this node ready as worker node by Enter:1 and then manually adding kubeadm join token command BUT to make it master-node Enter: 0]
+3. if master-node is in notReady state then try to catch error with
    1. systemctl deamon-reload && systemctl restart kubelet && kubectl get nodes
    2. kubectl describe node your_control_plane_node_name
 

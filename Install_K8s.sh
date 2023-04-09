@@ -120,7 +120,7 @@ else
 	echo "\nTo make this NODE as control plane, Refer - kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/\n"
 	echo "\n----- complete -----\n"
 	sudo systemctl daemon-reload
-	echo "please restart daemon-reload once again [  systemctl daemon-reload ]"
+	echo "please restart daemon-reload once again"
 fi
 
 

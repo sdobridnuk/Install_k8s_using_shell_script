@@ -115,12 +115,13 @@ if [ "$user_input" -eq 0 ];then
 	sudo kubeadm token create --print-join-command
 	echo "\n----- complete -----\n"
 	sudo systemctl daemon-reload
+	sudo systemctl daemon-reload
 	sudo kubectl get nodes
+	echo "please restart daemon-reload once again [ systemctl daemon-reload ] then [ kubectl get nodes ]"
 else
 	echo "\nTo make this NODE as control plane, Refer - kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/\n"
 	echo "\n----- complete -----\n"
 	sudo systemctl daemon-reload
-	echo "please restart daemon-reload once again"
 fi
 
 

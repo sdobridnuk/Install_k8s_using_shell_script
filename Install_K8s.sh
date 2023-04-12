@@ -95,7 +95,8 @@ read -p "To make it Control-plane ( master-node ) Enter 0 ,For Exit Enter 1  : "
 if [ "$user_input" -eq 0 ];then
         user_ip = hostname -I | awk '{print $1}'
 	echo "Initializing Kubeadm , may take some time"
-	if sudo kubeadm init --apiserver-advertise-address=$user_ip --ignore-preflight-errors=all | grep -q 'kubeadm join';then
+	# ------- good practice to pass cidr as it invert overlapping of k8s network with host network (can find is it overlapping or not - k desc pod weave... )
+	if sudo kubeadm init --pod-newtork-cidr=10.244.0.0/16 --apiserver-advertise-address=$user_ip --ignore-preflight-errors=all | grep -q 'kubeadm join';then
 		echo ""
 		
 	else 
@@ -103,7 +104,7 @@ if [ "$user_input" -eq 0 ];then
 		sudo systemctl daemon-reload
 		sudo systemctl restart kubelet
 		sudo systemctl status kubelet
-		sudo kubeadm init --apiserver-advertise-address=$user_ip --ignore-preflight-errors=all -y
+		sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=$user_ip --ignore-preflight-errors=all -y
         fi
 	sudo mkdir -p $HOME/.kube
 	sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config

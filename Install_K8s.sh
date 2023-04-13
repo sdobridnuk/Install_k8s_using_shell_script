@@ -110,7 +110,7 @@ if [ "$user_input" -eq 0 ];then
 	sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 	sudo chown $(id -u):$(id -g) $HOME/.kube/config
 # -----------   Installing weave net (  the deault cidr=10.32.0.0/12 this can be overlap with host newtork so we are going to change it with /16 by downloading its yaml file and make changes in it)
-	if [[ ! -f weave-daemonset-k8s.yaml ]];then
+	if [ ! -f weave-daemonset-k8s.yaml ];then
                 sudo wget https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
         fi
 	sudo kubectl apply -f weave-daemonset-k8s.yaml

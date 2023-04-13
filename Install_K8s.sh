@@ -111,6 +111,7 @@ if [ "$user_input" -eq 0 ];then
 	sudo chown $(id -u):$(id -g) $HOME/.kube/config
 # -----------   Installing weave net (  the deault cidr=10.32.0.0/12 this can be overlap with host newtork so we are going to change it with /16 by downloading its yaml file and make changes in it)
 	sudo wget https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
+	sudo kubectl apply -f weave-daemonset-k8s.yaml
         # sudo kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml 
 	sed -i  '/value: "true"/a  \\                - name: IPALLOC_RANGE\n                  value: 10.32.0.0\/16' weave-daemonset-k8s.yaml | grep -A 5 INIT
 	echo "\n Control-Plane is Ready \n"

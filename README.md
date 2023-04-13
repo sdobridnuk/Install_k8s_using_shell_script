@@ -21,6 +21,8 @@ CNI - Weave Net
    1. systemctl deamon-reload && systemctl restart kubelet && kubectl get nodes
    2. kubectl describe node your_control_plane_node_name
 
+* If the weave-net pod is in a crash loop state then check logs, it might the weave-net IP range is overlapping with the host network . we allocated IPrange of  10.32.0.0/16 by changing the default of cidr /12. If 10.32.0.0/16 overlaps then first delete the weave-net daemonset and change the range in the env IPALLOC_RANGE of file weave-daemonset-k8s.yaml and then apply this yaml file.
+
 * Feedback Please:
   if you applied this shell script, Please share your feedback on - https://www.linkedin.com/posts/digpal-parmar_cka-kubernetes-devops-activity-7050560850138476544-HgOh
   OR https://twitter.com/DigpalParmar2/status/1644804475205419010

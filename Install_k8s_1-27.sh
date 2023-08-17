@@ -132,6 +132,7 @@ if [ "$user_input" -eq 0 ];then
 	echo "\n----- complete -----\n"
 	sudo systemctl daemon-reload
 	sudo systemctl daemon-reload
+ 	sleep 5
 	sudo kubectl get nodes
 	echo "Restart daemon-reload once again [ sudo systemctl daemon-reload ] then [ kubectl get nodes ]"
 else

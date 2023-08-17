@@ -124,7 +124,7 @@ if [ "$user_input" -eq 0 ];then
 	sudo systemctl daemon-reload 
 	sudo systemctl restart kubelet
  	sleep 5
-	sudo kubectl apply -f weave-daemonset-k8s.yaml
+	kubectl apply -f weave-daemonset-k8s.yaml
 	echo "\n Control-Plane is Ready \n"
 	sudo kubectl get nodes
 	echo "\n copy below one token to pass it to Worker Nodes\n"

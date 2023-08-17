@@ -123,6 +123,7 @@ if [ "$user_input" -eq 0 ];then
 	sed -i  '/value: "true"/a  \\                - name: IPALLOC_RANGE\n                  value: 10.32.0.0\/16' weave-daemonset-k8s.yaml
 	sudo systemctl daemon-reload 
 	sudo systemctl restart kubelet
+ 	sleep 5
 	sudo kubectl apply -f weave-daemonset-k8s.yaml
 	echo "\n Control-Plane is Ready \n"
 	sudo kubectl get nodes

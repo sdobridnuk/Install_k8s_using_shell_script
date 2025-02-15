@@ -67,7 +67,7 @@ if [ "$user_input" -eq 0 ];then
         user_ip = hostname -I | awk '{print $1}'
 	echo "Initializing Kubeadm , may take some time"
 	# ------- good practice to pass cidr as it invert overlapping of k8s network with host network 
-	if sudo kubeadm init --pod-network-cidr=10.32.0.0/16 --apiserver-advertise-address=$user_ip --ignore-preflight-errors=all | grep -q 'kubeadm join';then
+	if sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=$user_ip --ignore-preflight-errors=all | grep -q 'kubeadm join';then
 		echo ""
 		
 	else 
@@ -75,18 +75,11 @@ if [ "$user_input" -eq 0 ];then
 		sudo systemctl daemon-reload
 		sudo systemctl restart kubelet
 		sudo systemctl status kubelet
-		sudo kubeadm init --pod-network-cidr=10.32.0.0/16 --apiserver-advertise-address=$user_ip --ignore-preflight-errors=all -y
+		sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=$user_ip --ignore-preflight-errors=all -y
         fi
 	sudo mkdir -p $HOME/.kube
 	sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 	sudo chown $(id -u):$(id -g) $HOME/.kube/config
-# -----------   Installing weave net (  the deault cidr=10.32.0.0/12 this can be overlap with host newtork so we are going to change it with /16 by downloading its yaml file and make changes in it)
-	if [ ! -f weave-daemonset-k8s.yaml ];then
-                sudo wget https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
-        fi
-        # sudo kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml 
-	sed -i  '/value: "true"/a  \\                - name: IPALLOC_RANGE\n                  value: 10.32.0.0\/16' weave-daemonset-k8s.yaml | grep -A 5 INIT
-	sudo kubectl apply -f weave-daemonset-k8s.yaml
 	echo "\n Control-Plane is Ready \n"
 	sudo kubectl get nodes
 	echo "\n copy below one token to pass it to Worker Nodes\n"

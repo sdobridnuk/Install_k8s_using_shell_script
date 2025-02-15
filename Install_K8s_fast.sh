@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo apt -y install nano
 sudo apt update
 sudo apt -y upgrade
 sudo apt -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common

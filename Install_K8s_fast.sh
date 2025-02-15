@@ -44,7 +44,7 @@ curl -L https://download.opensuse.org/repositories/devel:/kubic:/libcontainers:/
 apt update && apt -y install cri-o cri-o-runc cri-tools
 
 systemctl start crio && systemctl enable crio
-systemctl status crio
+systemctl status -lines=20 crio
 
 #Install k8s
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.29/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg

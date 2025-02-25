@@ -1,5 +1,6 @@
-sudo apt -y install curl
-sudo apt -y install default-jdk
+#!/bin/bash
+
+sudo apt -y install curl sudo apt -y install default-jdk
 # смотрим версию
 java -version
 wget https://dlcdn.apache.org/kafka/3.9.0/kafka_2.13-3.9.0.tgz

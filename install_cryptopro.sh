@@ -1,10 +1,9 @@
-tar -zxf linux-amd64_deb.tgz
-cd linux-amd64_deb
-sudo ./install_gui.sh
-dpkg -l | grep cprocsp
-export PATH="$(/bin/ls -d /opt/cprocsp/{s,}bin/*|tr '\n' ':')$PATH"
-sudo apt install libccid pcscd libgost-astra
-/opt/cprocsp/sbin/amd64/cpconfig -license -view
+#!/bin/bash
+
+tar -zxf linux-amd64_deb.tgz cd linux-amd64_deb sudo ./install_gui.sh 
+dpkg -l | grep cprocsp export PATH="$(/bin/ls -d 
+/opt/cprocsp/{s,}bin/*|tr '\n' ':')$PATH" sudo apt install libccid pcscd 
+libgost-astra /opt/cprocsp/sbin/amd64/cpconfig -license -view
 #
 # ввести список лицензий
 #sudo /opt/cprocsp/sbin/amd64/cpconfig -license -set <номер_лицензии>

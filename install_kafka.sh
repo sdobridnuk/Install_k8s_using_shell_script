@@ -10,7 +10,7 @@ chown -R kafka:kafka /opt/kafka
 rm -f kafka_2.13-3.9.0.tgz
 #Создаем первый юнит-файл:
 # ----------   Configure prerequisites  ( kubernetes.io/docs/setup/production-environment/container-runtimes/ )
-sudo cat <<EOF | sudo tee /etc/systemd/system/zookeeper.service
+sudo cat > /etc/systemd/system/zookeeper.service << EOF
 [Unit]
 Description=Zookeeper Service
 Requires=network.target remote-fs.target
@@ -28,7 +28,7 @@ Restart=on-failure
 WantedBy=multi-user.target
 EOF
 
-sudo cat <<EOF | sudo tee /etc/systemd/system/kafka.service
+sudo cat  > /etc/systemd/system/kafka.service << EOF
 [Unit]
 Description=Kafka Service
 Requires=zookeeper.service

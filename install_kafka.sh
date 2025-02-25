@@ -1,5 +1,5 @@
-sudo apt install curl
-apt install default-jdk
+sudo apt -y install curl
+sudo apt -y install default-jdk
 # смотрим версию
 java -version
 wget https://dlcdn.apache.org/kafka/3.9.0/kafka_2.13-3.9.0.tgz
@@ -7,7 +7,7 @@ mkdir /opt/kafka
 tar zxf kafka_*.tgz -C /opt/kafka --strip 1
 useradd -r -c 'Kafka broker user service' kafka
 chown -R kafka:kafka /opt/kafka
-rm -q kafka_2.13-3.9.0.tgz
+rm -f kafka_2.13-3.9.0.tgz
 #Создаем первый юнит-файл:
 # ----------   Configure prerequisites  ( kubernetes.io/docs/setup/production-environment/container-runtimes/ )
 sudo cat <<EOF | sudo tee /etc/systemd/system/zookeeper.service

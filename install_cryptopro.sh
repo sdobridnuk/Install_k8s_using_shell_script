@@ -9,6 +9,8 @@ sudo ./install_gui.sh
 dpkg -l | grep cprocsp 
 export PATH="$(/bin/ls -d /opt/cprocsp/{s,}bin/*|tr '\n' ':')$PATH" 
 sudo apt install libccid pcscd libgost-astra 
+# если  ubuntu 22.04
+sudo apt install libccid pcscd gost
 #
 #
 # проверить срок лицензий  КриптоПро

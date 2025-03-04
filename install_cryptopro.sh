@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# если  ubuntu 22.04
+sudo apt-get -y install whiptail
+#
 tar -zxf linux-amd64_deb.tgz 
 cd linux-amd64_deb 
 sudo ./install_gui.sh 

@@ -1,5 +1,8 @@
 # Install_k8s_using_shell_script
 
+Some usefull BASH scripts
+
+Note:
 Installation of Kubernetes through Kubeadm-way for Master-Node and Worker-Node from single shell script ( k8s_installation.sh) for any patch version of 1.26 
 
 Kubernetes version - 1.26

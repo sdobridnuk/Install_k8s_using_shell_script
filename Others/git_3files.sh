@@ -1,0 +1,9 @@
+#!/bin/sh
+./bashscripts/git_pull.sh
+./bashscripts/git_branch.sh
+./bashscripts/git_init.sh
+./bashscripts/git_pre_push.sh
+./bashscripts/git_push.sh
+./bashscripts/git_branch.sh
+./bashscripts/git_pull.sh
+./bashscripts/git_branch.sh
